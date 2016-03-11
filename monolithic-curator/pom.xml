@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>monolithic</groupId>
+        <artifactId>monolithic</artifactId>
+        <version>0.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>monolithic-curator</artifactId>
+
+    <dependencies>
+        <!-- Project modules -->
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>monolithic-crypto</artifactId>
+        </dependency>
+
+        <!-- Manages connectivity to zookeeper -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+
+        <!-- Used to perform testing with curator and zookeeper -->
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-test</artifactId>
+            <!-- Prevent dependency convergence issues with org.reflections -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.javassist</groupId>
+                    <artifactId>javassist</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- Unit Testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+        </dependency>
+    </dependencies>
+</project>
